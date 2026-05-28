@@ -11,6 +11,7 @@ namespace CleanMovie.Domain
         public int DefId { get; set; }
         public string DefType { get; set; } = string.Empty;
         public string DefName { get; set; } = string.Empty;
+        public DateOnly DefaultDate { get; set; }
         
     }
 }
