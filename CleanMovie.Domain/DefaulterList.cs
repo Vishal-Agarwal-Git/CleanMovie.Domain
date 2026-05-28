@@ -9,7 +9,8 @@ namespace CleanMovie.Domain
     public class DefaulterList
     {
         public int DefId { get; set; }
-        public int DefType { get; set; }
-        public int DefName { get; set; }
+        public string DefType { get; set; } = string.Empty;
+        public string DefName { get; set; } = string.Empty;
+        
     }
 }
