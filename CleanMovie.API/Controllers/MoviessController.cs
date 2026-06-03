@@ -17,6 +17,7 @@ namespace CleanMovie.API.Controllers
         {
             _service = service;
         }
+
         // GET: api/<MoviessController>
         [Route("GetAll")]
         [HttpGet]
@@ -25,6 +26,7 @@ namespace CleanMovie.API.Controllers
             var moviesFromService = _service.GetAllMovies();
             return Ok(moviesFromService);
         }
+
         [HttpPost]
         public ActionResult<Movie> PostMovie(Movie movie)
         {
