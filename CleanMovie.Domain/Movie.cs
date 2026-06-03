@@ -11,15 +11,15 @@ namespace CleanMovie.Domain
         public int MovieId { get; set; }
         public string MovieName { get; set; } = string.Empty;
         public decimal RentalCost { get; set; }
-        public int RentalDuration { get; set; }
+        //   public int RentalDuration { get; set; }
 
-        // Many to Many Relationship    
-          public IList<MovieRental> MovieRentals { get; set; }
-
-
-
+           // Many to Many Relationship    
+        //   public IList<MovieRental> MovieRentals { get; set; }
+        
 
 
 
+        
+        
     }
 }
