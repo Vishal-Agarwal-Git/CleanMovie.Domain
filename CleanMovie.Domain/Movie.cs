@@ -14,6 +14,12 @@ namespace CleanMovie.Domain
         public int RentalDuration { get; set; }
 
         // Many to Many Relationship    
-        public IList<MovieRental> MovieRentals { get; set; }
+          public IList<MovieRental> MovieRentals { get; set; }
+
+
+
+
+
+
     }
 }

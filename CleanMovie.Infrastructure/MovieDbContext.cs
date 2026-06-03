@@ -31,9 +31,9 @@ namespace CleanMovie.Infrastructure
                 .Property(p => p.TotalCost)
                 .HasColumnType("decimal(18,2)");
 
-            modelBuilder.Entity<Movie>()
-                .Property(p => p.RentalCost)
-                .HasColumnType("decimal(18,2)");
+            //modelBuilder.Entity<Movie>()
+            //    .Property(p => p.RentalCost)
+            //    .HasColumnType("decimal(18,2)");
         }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Rental> Rentals { get; set; }

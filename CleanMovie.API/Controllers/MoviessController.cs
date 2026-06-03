@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CleanMovie.API.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MoviessController : ControllerBase
     {
@@ -17,6 +18,7 @@ namespace CleanMovie.API.Controllers
             _service = service;
         }
         // GET: api/<MoviessController>
+        [Route("GetAll")]
         [HttpGet]
         public ActionResult<List<Movie>> Get()
         {
