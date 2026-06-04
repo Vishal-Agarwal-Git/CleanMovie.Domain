@@ -37,5 +37,26 @@ namespace CleanMovie.Infrastructure
             //_movieDbContext.Movies.ToList().ForEach(movie => {
             //return movies;
         }
+
+        public List<Movie> GetMovieById(int id)
+        {
+            //return _movieDbContext.Movies.
+            if (id == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
+                if (data == null)
+                {
+                    return BadRequest();
+                }
+                else
+                {
+                    return Ok(data);
+                }
+            }
+        }
     }
 }
