@@ -38,24 +38,16 @@ namespace CleanMovie.Infrastructure
             //return movies;
         }
 
-        public List<Movie> GetMovieById(int id)
+        Movie IMovieRepository.GetMovieById(int id)
         {
-            //return _movieDbContext.Movies.
-            if (id == 0)
+            var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
+            if (data == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             else
             {
-                var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
-                if (data == null)
-                {
-                    return BadRequest();
-                }
-                else
-                {
-                    return Ok(data);
-                }
+                return Ok(data);
             }
         }
     }
