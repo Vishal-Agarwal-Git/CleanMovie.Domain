@@ -41,14 +41,14 @@ namespace CleanMovie.Infrastructure
         Movie IMovieRepository.GetMovieById(int id)
         {
             var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
-            if (data == null)
-            {
-                return BadRequest();
-            }
-            else
-            {
-                return Ok(data);
-            }
+            //if (data == null)
+            //{
+            //    return BadRequest();
+            //}
+            //else
+            //{
+            //    return Ok(data);
+            //}
         }
     }
 }
