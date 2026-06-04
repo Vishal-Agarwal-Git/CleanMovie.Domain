@@ -28,5 +28,11 @@ namespace CleanMovie.Application
             var movies = _movieRepository.GetAllMovies();
             return movies;
         }
+
+        public Movie GetMovieById(int id)
+        {
+            var movies = _movieRepository.GetMovieById(id);
+            return movies;
+        }
     }
 }
