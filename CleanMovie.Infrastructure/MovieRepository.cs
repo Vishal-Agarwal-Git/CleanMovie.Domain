@@ -41,6 +41,7 @@ namespace CleanMovie.Infrastructure
         Movie IMovieRepository.GetMovieById(int id)
         {
             var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
+            return data;
             //if (data == null)
             //{
             //    return BadRequest();
