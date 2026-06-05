@@ -31,6 +31,16 @@ namespace CleanMovie.Infrastructure
             return movie;
         }
 
+        public Movie Delete(int id)
+        {
+            var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();
+            if(data != null)
+            {
+                _movieDbContext.Movies.Remove(data);
+            }
+            return null;
+        }
+
         public List<Movie> GetAllMovies()
         {
             return _movieDbContext.Movies.ToList();
