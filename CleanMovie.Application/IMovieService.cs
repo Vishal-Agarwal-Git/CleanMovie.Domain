@@ -13,5 +13,6 @@ namespace CleanMovie.Application
         List<Movie> GetAllMovies();
         Movie CreateMovie(Movie movie);
         Movie GetMovieById(int id);
+        Movie Delete(int id);
     }
 }
