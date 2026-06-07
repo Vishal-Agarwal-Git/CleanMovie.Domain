@@ -40,5 +40,13 @@ namespace CleanMovie.API.Controllers
             var moviesId = _service.GetMovieById(id);
             return Ok(moviesId);
         }
+
+        [HttpPost]
+        public ActionResult<Movie> MovieDelete(int id)
+        {
+            var moviesId = _service.GetMovieById(id);
+            _service.Delete(id);
+            return Ok(moviesId);
+        }
     }
 }
