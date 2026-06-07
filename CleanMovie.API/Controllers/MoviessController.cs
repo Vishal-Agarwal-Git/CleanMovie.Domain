@@ -34,5 +34,11 @@ namespace CleanMovie.API.Controllers
             return Ok(Movie);
         }
         
+        [HttpGet]
+        public ActionResult<Movie> MovieGetById(int id)
+        {
+            var moviesId = _service.GetMovieById(id);
+            return Ok(moviesId);
+        }
     }
 }
