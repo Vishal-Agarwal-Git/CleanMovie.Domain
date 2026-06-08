@@ -48,6 +48,11 @@ namespace CleanMovie.Infrastructure
             //return movies;
         }
 
+        public Movie UpdateMovie(Movie movie)
+        {
+            throw new NotImplementedException();
+        }
+
         Movie IMovieRepository.GetMovieById(int id)
         {
             var data = _movieDbContext.Movies.Where(e => e.Id == id).SingleOrDefault();

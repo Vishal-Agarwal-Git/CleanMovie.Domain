@@ -23,6 +23,11 @@ namespace CleanMovie.Application
             return movie;
         }
 
+        public Movie Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Movie> GetAllMovies()
         {
             var movies = _movieRepository.GetAllMovies();
@@ -33,6 +38,11 @@ namespace CleanMovie.Application
         {
             var movies = _movieRepository.GetMovieById(id);
             return movies;
+        }
+
+        public Movie UpdateMovie(Movie movie)
+        {
+            throw new NotImplementedException();
         }
     }
 }
