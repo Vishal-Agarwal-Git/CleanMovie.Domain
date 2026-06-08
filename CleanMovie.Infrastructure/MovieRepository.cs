@@ -1,5 +1,6 @@
 ﻿using CleanMovie.Application;
 using CleanMovie.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,17 @@ namespace CleanMovie.Infrastructure
 
         public Movie UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _movieDbContext.Attach(movie);      // Attach entity to avoid issue with update    
+                _movieDbContext.Entry(movie).State = EntityState.Modified;
+                _movieDbContext.SaveChanges();
+                return movie;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                throw new ApplicationException("A concurrency error occure while updating the entity.", ex);
+            }
         }
 
         Movie IMovieRepository.GetMovieById(int id)
