@@ -25,7 +25,7 @@ namespace CleanMovie.Application
 
         public Movie Delete(int id)
         {
-            throw new NotImplementedException();
+            return _movieRepository.Delete(id);
         }
 
         public List<Movie> GetAllMovies()
