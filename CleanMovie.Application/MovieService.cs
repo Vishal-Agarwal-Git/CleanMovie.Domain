@@ -42,7 +42,7 @@ namespace CleanMovie.Application
 
         public Movie UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            return _movieRepository.UpdateMovie(movie);
         }
     }
 }
