@@ -56,6 +56,7 @@ namespace CleanMovie.API.Controllers
             }
             _service.Entry(obj).State = EntityState.Modified;
             _service.SaveChanges();
+            return Ok();
         }
 
         [HttpPost]
