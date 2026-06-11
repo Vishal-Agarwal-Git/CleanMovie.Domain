@@ -13,7 +13,7 @@ namespace CleanMovie.Application
         List<Movie> GetAllMovies();
         Movie CreateMovie(Movie movie);
         Movie GetMovieById(int id);
-        Movie UpdateMovie(Movie movie);
+        Movie UpdateMovieAsync(Movie movie);
         Movie Delete(int id);
     }
 }

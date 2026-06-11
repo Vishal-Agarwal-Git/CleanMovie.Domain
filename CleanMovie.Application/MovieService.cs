@@ -40,7 +40,7 @@ namespace CleanMovie.Application
             return movies;
         }
 
-        public Movie UpdateMovie(Movie movie)
+        public Movie UpdateMovieAsync(Movie movie)
         {
             return _movieRepository.UpdateMovie(movie);
         }

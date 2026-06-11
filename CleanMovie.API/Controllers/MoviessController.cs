@@ -47,27 +47,49 @@ namespace CleanMovie.API.Controllers
             return Ok(moviesId);
         }
 
-        [HttpPut]
-        public async Task<ActionResult> UpdateMovie(int id, Movie obj)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateMovie(int id, Movie obj)
         {
-            if(id != obj.Id)
+            if (id != obj.Id)
             {
                 return BadRequest("Movie Id mismatch!");
             }
-            _service.Entry(obj).State = EntityState.Modified;
-            try
+
+            // Check existence through service
+            var existingMovie = _service.GetMovieById(id);
+            if (existingMovie == null)
             {
-                await _service.SaveChangesAsync();
+                return NotFound();
             }
-            catch(DbUpdateConcurrencyException)
-            {
-                if(!MovieExists(id))
-                {
-                    return NotFound();
-                }
-            }
+
+            // Let the service handle the EF Core Save/Update logic
+            _service.UpdateMovieAsync(obj);
+
             return NoContent();
         }
+
+
+        //[HttpPut]
+        //public async Task<ActionResult> UpdateMovie(int id, Movie obj)
+        //{
+        //    if(id != obj.Id)
+        //    {
+        //        return BadRequest("Movie Id mismatch!");
+        //    }
+        //    _service.Entry(obj).State = EntityState.Modified;
+        //    try
+        //    {
+        //        await _service.SaveChangesAsync();
+        //    }
+        //    catch(DbUpdateConcurrencyException)
+        //    {
+        //        if(!MovieExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //    }
+        //    return NoContent();
+        //}
 
         [HttpDelete("{id}")]
         public ActionResult MovieDelete(int id)
