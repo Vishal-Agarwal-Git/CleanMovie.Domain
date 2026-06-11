@@ -55,8 +55,18 @@ namespace CleanMovie.API.Controllers
                 return BadRequest("Movie Id mismatch!");
             }
             _service.Entry(obj).State = EntityState.Modified;
-            _service.SaveChanges();
-            return Ok();
+            try
+            {
+                await _service.SaveChangesAsync();
+            }
+            catch(DbUpdateConcurrencyException)
+            {
+                if(!MovieExists(id))
+                {
+                    return NotFound();
+                }
+            }
+            return NoContent();
         }
 
         [HttpPost]
