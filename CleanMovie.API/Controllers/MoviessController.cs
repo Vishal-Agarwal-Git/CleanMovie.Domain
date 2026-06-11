@@ -32,11 +32,11 @@ namespace CleanMovie.API.Controllers
         [HttpPost]
         public ActionResult<Movie> PostMovie(Movie movie)
         {
-            var Movie = _service.CreateMovie(movie);
-            return Ok(Movie);
+            var createdMovie = _service.CreateMovie(movie);
+            return Ok(createdMovie);
         }
         
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<Movie> MovieGetById(int id)
         {
             var moviesId = _service.GetMovieById(id);
@@ -48,7 +48,7 @@ namespace CleanMovie.API.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<Movie>> UpdateMovie(int id, Movie obj)
+        public async Task<ActionResult> UpdateMovie(int id, Movie obj)
         {
             if(id != obj.Id)
             {
@@ -69,12 +69,16 @@ namespace CleanMovie.API.Controllers
             return NoContent();
         }
 
-        [HttpPost]
-        public ActionResult<Movie> MovieDelete(int id)
+        [HttpDelete("{id}")]
+        public ActionResult MovieDelete(int id)
         {
             var moviesId = _service.GetMovieById(id);
+			if(moviesId == null)
+			{
+				return NotFound();
+			}
             _service.Delete(id);
-            return Ok(moviesId);
+            return NoContent();
         }
     }
 }
