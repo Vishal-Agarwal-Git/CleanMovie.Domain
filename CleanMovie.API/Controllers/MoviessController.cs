@@ -68,29 +68,6 @@ namespace CleanMovie.API.Controllers
             return NoContent();
         }
 
-
-        //[HttpPut]
-        //public async Task<ActionResult> UpdateMovie(int id, Movie obj)
-        //{
-        //    if(id != obj.Id)
-        //    {
-        //        return BadRequest("Movie Id mismatch!");
-        //    }
-        //    _service.Entry(obj).State = EntityState.Modified;
-        //    try
-        //    {
-        //        await _service.SaveChangesAsync();
-        //    }
-        //    catch(DbUpdateConcurrencyException)
-        //    {
-        //        if(!MovieExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //    }
-        //    return NoContent();
-        //}
-
         [HttpDelete("{id}")]
         public ActionResult MovieDelete(int id)
         {
